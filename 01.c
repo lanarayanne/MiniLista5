@@ -17,25 +17,26 @@ int main ()
     printf ("Quantas vezez foi realizado abastecimento?: ");
     scanf ("%d", &a);
     
-    float b, c;  // b = Km rodados | c= litros obtidos por abastecimento.
-    printf ("Digite a quantidade de quilometros rodados: ");
-    scanf ("%f", &b);
-    printf ("Digite quantos litros de gasolina são obtidos por abastecimento: "); 
-    scanf ("%f", &c);
-    float kmplit = b/c; // Considerando que todo o abastecimento foi utilizado.
-    printf ("A cada Km rodado, foram utilizados %.2f litros de gasolina \n", kmplit);
-    
-    int d = 0; // d=vezes abastecidas, começando em nenhuma
-    float calc, total=0; // calc= calcula a ser realizado e total = total de Km/L de todos os abastecimentos
-    
+    int d = 1; // d=vezes abastecidas
+    float calc; // calc= calcula a ser realizado
+    float kmtotal, litrostotal, kmplit;
     while (d <= a) //Realizar condição até que a quantidade de vezes abastecidas seja igual q quantidade de abastecimentos declarada. 
     {
-    calc = d * kmplit; //Cada vez que abastecer multiplica pelo Km/L
-    total = total + calc; // 0 + resultado de calc; depois o resultado de total + calc...
+      float b, c;  // b = Km rodados | c= litros obtidos por abastecimento.
+    printf ("\n %d) Digite a quantidade de quilometros rodados: ", d);
+    scanf ("%f", &b);
+    printf (" %d) Digite quantos litros de gasolina são obtidos por abastecimento: ", d); 
+    scanf ("%f", &c);
+    float kmplit = b/c; // Considerando que todo o abastecimento foi utilizado.
+    printf (" %d) A cada Litro de gasolina, o carro andou %.2f Km \n\n", d, kmplit);
+    
+    kmtotal= d* b;
+    litrostotal = d*c;
+    calc = kmtotal/litrostotal; // 
     d = d + 1; // A cada repetição a quantidade de abastecimentos aumenta em 1.
     }
     
-    printf ("A quantidade total de Km por litro para %d abastecimento(s) e igual a %.2f", a, total);
+    printf ("A quantidade total de Km/L para %d abastecimento(s) e igual a %.2f", a, calc);
     
 return 0;
 }
